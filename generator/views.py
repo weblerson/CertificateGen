@@ -7,7 +7,10 @@ def generate_certificate(request):
     match request.method:
         case 'GET':
             form = CertificateForm()
-            context = {'form': form}
+            context = {
+                'form': form,
+                'status': request.GET.get('status')
+            }
 
             return render(request, 'generate_certificate.html', context)
 
@@ -24,3 +27,5 @@ def generate_certificate(request):
 
                 except:
                     return redirect('/?status=2')
+
+            return redirect('/?status=0')

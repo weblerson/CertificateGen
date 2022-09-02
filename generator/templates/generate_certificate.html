@@ -3,8 +3,28 @@
 
 {% block title %}Gerador de Atestado Grátis{% endblock title %}
 
-{% block main %}
+{% block main %}<br>
     <section class="container">
+        <div class="container">
+            {% if status == '0' %}
+                <div class="alert alert-warning" role="alert">
+                    Preencha os campos corretamente!
+                </div>
+            {% endif %}
+
+            {% if status == '1' %}
+                <div class="alert alert-success" role="alert">
+                    Atestado gerado com sucesso! Cheque seu e-mail para fazer o download.
+                </div>
+            {% endif %}
+            
+            {% if status == '2' %}
+                <div class="alert alert-danger" role="alert">
+                    Ocorreu um erro ao gerar seu atestado. Tente novamente mais tarde.
+                </div>
+            {% endif %}
+        </div>
+
         <form method="POST" action="{% url 'generate_certificate' %}">{% csrf_token %}
             <div class="mb-3">
                 {{form.nome.label}}

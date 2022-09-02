@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
-    <h1>Olá, {{name}}</h1><hr>
+    <h1>Olá, {{name}}</h1><br>
 
     <p>
         Você está recebendo esse e-mail porque solicitou um atestado médico na nossa plataforma.
         Se não foi você quem solicitou, apenas ignore.
     </p>
-    <span>Segue abaixo o atestado:</span><hr>
-
-    <img src={{path}}>
+    <span>Segue abaixo o link para o atestado:</span><br>
+    <a href="http://127.0.0.1:8000/media/certificates/{{image_name}}.png">Link para o Atestado</a>
 </html>
